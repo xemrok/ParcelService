@@ -13,7 +13,7 @@ CREATE TABLE departament (departament_number INTEGER auto_increment PRIMARY KEY 
 	departament_city VARCHAR(30));
 
 CREATE TABLE data_transfer (id INTEGER auto_increment PRIMARY KEY NOT NULL,
-	departament_number INTEGER, 
+	departament_number INTEGER,
 	package_number INTEGER,
 	time_in DATE,CONSTRAINT TIME_in CHECK (time_in<=NOW()),
 	time_out DATE,CONSTRAINT TIME_out CHECK (time_out<=NOW()));
@@ -21,58 +21,58 @@ CREATE TABLE data_transfer (id INTEGER auto_increment PRIMARY KEY NOT NULL,
 CREATE TABLE package_data (package_number INTEGER auto_increment PRIMARY KEY NOT NULL,
 	delivery_date DATE, CONSTRAINT Date_of_shipment CHECK (delivery_date<=NOW()),
 	FIO_sender VARCHAR(30),
-	address_sender VARCHAR(100), 
+	address_sender VARCHAR(100),
 	FIO_recipient VARCHAR(30),
 	address_recipient VARCHAR(100),
-	status_package VARCHAR(10) NOT NULL DEFAULT 'Не вручена', CONSTRAINT stat CHECK(status_package ='Не вручена'OR status_package = 'Выдано'),
+	status_package VARCHAR(10) NOT NULL DEFAULT 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ', CONSTRAINT stat CHECK(status_package ='пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'OR status_package = 'пїЅпїЅпїЅпїЅпїЅпїЅ'),
 	data_delivery DATE, CONSTRAINT Date_of_issue CHECK (data_delivery<=NOW() OR data_delivery IS NULL));
-	
+
 ALTER TABLE workers ADD FOREIGN KEY (departament_number) REFERENCES departament (departament_number);
 ALTER TABLE data_transfer ADD FOREIGN KEY (package_number) REFERENCES package_data (package_number);
 ALTER TABLE data_transfer ADD FOREIGN KEY (departament_number) REFERENCES departament (departament_number);
 
-INSERT INTO departament (departament_street,departament_city) VALUES('Подбельского 2','Владимир');
-INSERT INTO departament (departament_street,departament_city) VALUES('Куйбышева 57','Нижний Новгород');
-INSERT INTO departament (departament_street,departament_city) VALUES('Кирова 58','Пенза');
-INSERT INTO departament (departament_street,departament_city) VALUES('Московская 109','Саратов');
-INSERT INTO departament (departament_street,departament_city) VALUES('Ленина 20','Москва');
+INSERT INTO departament (departament_street,departament_city) VALUES('пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 2','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO departament (departament_street,departament_city) VALUES('пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 57','пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO departament (departament_street,departament_city) VALUES('пїЅпїЅпїЅпїЅпїЅпїЅ 58','пїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO departament (departament_street,departament_city) VALUES('пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 109','пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO departament (departament_street,departament_city) VALUES('пїЅпїЅпїЅпїЅпїЅпїЅ 20','пїЅпїЅпїЅпїЅпїЅпїЅ');
 
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('admin','123','Жданов В.Ю.','Администратор',1,0);
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker1','123','Бореев К.К.','Менеджер',1,1);
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker2','123','Стариков Г.Е.','Менеджер',1,1);
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker3','123','Цицианова А.В.','Менеджер',1,1);
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker4','123','Густокашина И.П','Менеджер',2,1);
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker5','123','Немова А.Е.','Менеджер',2,1);
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker6','123','Лачкова В.Г.','Менеджер',2,1);
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker7','123','Голубкина М.А','Менеджер',3,1);
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker8','123','Катькин Р.А.','Менеджер',3,1);
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker9','123','Косинова Э.С.','Менеджер',3,1);
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker10','123','Чернецкая Е.В.','Менеджер',4,1);
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker11','123','Берков К.Е.','Менеджер',4,1);
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker12','123','Дёмина И.А','Менеджер',4,1);
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker13','123','Иванов А.Н.','Менеджер',5,1);
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker14','123','Агафонов А.Н.','Менеджер',5,1);
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker15','123','Пастух П.М.','Менеджер',5,1);
-INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('user','123','Пользователь','Клиент',1,2);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('admin','123','пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',1,0);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker1','123','пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',1,1);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker2','123','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',1,1);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker3','123','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',1,1);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker4','123','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',2,1);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker5','123','пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',2,1);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker6','123','пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',2,1);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker7','123','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',3,1);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker8','123','пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',3,1);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker9','123','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',3,1);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker10','123','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',4,1);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker11','123','пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',4,1);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker12','123','ДёпїЅпїЅпїЅпїЅ пїЅ.пїЅ','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',4,1);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker13','123','пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',5,1);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker14','123','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',5,1);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('worker15','123','пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',5,1);
+INSERT INTO workers (login,pass,FIO_workers,positions,departament_number,levels) VALUES('user','123','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ','пїЅпїЅпїЅпїЅпїЅпїЅ',1,2);
 
 INSERT INTO package_data (delivery_date,FIO_sender,address_sender,FIO_recipient,address_recipient) VALUES
-('2018.04.18','Волкова К.С.','г. Саратов ул. Разина д. 36','Гагарин Я.П.','г. Пенза ул. Плеханова д.15');
+('2018.04.18','пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 36','пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.15');
 INSERT INTO package_data (delivery_date,FIO_sender,address_sender,FIO_recipient,address_recipient) VALUES
-('2017.01.29','Карадапольцев В.И.','г. Владимир ул. Бебеля д. 94','Михальченко Л.М.','г. Москва ул. Баррикадная д. 3');
+('2017.01.29','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 94','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 3');
 INSERT INTO package_data (delivery_date,FIO_sender,address_sender,FIO_recipient,address_recipient) VALUES
-('2017.12.21','Щедров С.Е.','г. Нижний Новгород ул. Автомоторная д. 15','Лазуткина Л.А.','г. Саратов ул. ул. Барвихинская д. 22');
+('2017.12.21','пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 15','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 22');
 INSERT INTO package_data (delivery_date,FIO_sender,address_sender,FIO_recipient,address_recipient) VALUES
-('2018.04.15','Сарайкин С.А.','г. Пенза ул. Завокзальная д. 4','Касыгин О.Е.','г. Владимир ул. Заречная д. 44');
+('2018.04.15','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 4','пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 44');
 INSERT INTO package_data (delivery_date,FIO_sender,address_sender,FIO_recipient,address_recipient) VALUES
-('2017.12.31','Кочергов Т.Е.','г. Саратов ул. Садовая д. 37','Головченко А.П.','г. Владимир ул. Авиамоторная д. 14');
+('2017.12.31','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 37','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 14');
 INSERT INTO package_data (delivery_date,FIO_sender,address_sender,FIO_recipient,address_recipient) VALUES
-('2018.07.07','Бугайчук И.П.','г. Нижний Новогород ул. Бауманская д. 2','Юдин А.Н.','г. Москва ул. Голландская д. 11');
+('2018.07.07','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 2','пїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 11');
 INSERT INTO package_data (delivery_date,FIO_sender,address_sender,FIO_recipient,address_recipient) VALUES
-('2018.08.05','Гринина З.В.','г. Саратов ул. Бахрушина д. 5','Волков Ф.Н.','г. Москва ул. Глинки д. 24');
+('2018.08.05','пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 5','пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 24');
 INSERT INTO package_data (delivery_date,FIO_sender,address_sender,FIO_recipient,address_recipient) VALUES
-('2017.09.03','Диденкова Р.Е.','г. Москва ул. Авиаторов д. 5','Пушкарёва Д.С.','г. Пенза ул. Ленина д. 7');
+('2017.09.03','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 5','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 7');
 INSERT INTO package_data (delivery_date,FIO_sender,address_sender,FIO_recipient,address_recipient) VALUES
-('2017.03.16','Еремеева И.С.','г. Пенза ул. Барболина д. 28','Шалупова Н.К.','г. Нижний Новгород ул. Достоевского д. 29');
+('2017.03.16','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 28','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.','пїЅ. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ. 29');
 
 INSERT INTO data_transfer (departament_number,package_number,time_in,time_out) VALUES(5,1,'2018.09.30','2018.10.01');
 INSERT INTO data_transfer (departament_number,package_number,time_in) VALUES(4,1,'2018.10.02');
@@ -102,19 +102,17 @@ INSERT INTO data_transfer (departament_number,package_number,time_in,time_out) V
 INSERT INTO data_transfer (departament_number,package_number,time_in,time_out) VALUES(4,9,'2017.03.16','2017.03.17');
 INSERT INTO data_transfer (departament_number,package_number,time_in,time_out) VALUES(3,9,'2017.03.18','2017.03.23');
 
-/*CREATE TRIGGER `Del_package`
+CREATE TRIGGER `Del_package`
 BEFORE DELETE ON `package_data`
 FOR EACH ROW
 DELETE FROM data_transfer WHERE OLD.package_number = package_number
 
-CREATE TRIGGER `Del_departament1` 
-BEFORE DELETE ON `departament` 
-FOR EACH ROW 
+CREATE TRIGGER `Del_departament1`
+BEFORE DELETE ON `departament`
+FOR EACH ROW
 DELETE FROM workers WHERE OLD.departament_number = departament_number
 
-CREATE TRIGGER `Del_departament2` 
-BEFORE DELETE ON `departament` 
-FOR EACH ROW 
-DELETE FROM data_transfer WHERE OLD.departament_number = departament_number*/
-
-
+CREATE TRIGGER `Del_departament2`
+BEFORE DELETE ON `departament`
+FOR EACH ROW
+DELETE FROM data_transfer WHERE OLD.departament_number = departament_number
